@@ -64,7 +64,7 @@ public class ClientSample {
 
 ### JAR ファイルのダウンロード
 
-GitHub ページの Release ページより JAR ファイルをダウンロードし、作業ディレクトリに配置します。
+[Release](https://github.com/BerandaMegane/mc3eprotocol-java/releases) より JAR ファイルをダウンロードし、作業ディレクトリに配置します。
 
 ### 実行する
 
