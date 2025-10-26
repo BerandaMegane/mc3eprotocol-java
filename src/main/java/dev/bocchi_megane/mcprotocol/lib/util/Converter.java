@@ -31,7 +31,7 @@ public class Converter {
     }
 
     /**
-     * 16進数文字列をbyte配列に変換します。
+     * 16進数文字列をbyte配列（リトルエンディアン）に変換します。
      * @param hexString 16進数文字列
      * @param length 生成するbyte配列の長さ
      * @return 変換されたbyte配列
@@ -48,13 +48,14 @@ public class Converter {
      * @return 変換されたbyte配列
      */
     public static byte[] fromIntToByteArray(int value, int length) {
+        // int値を4バイトのリトルエンディアン配列に変換
         byte[] bytes = ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(value).array();
+        // 指定された長さの結果配列を準備
         byte[] result = new byte[length];
+        // 元配列から結果配列にコピー
         for (int i = 0; i < length; i++) {
             if (i < bytes.length) {
-                result[i] = bytes[i];
-            } else {
-                result[i] = 0;
+                result[i] = bytes[i];  // 元配列から値をコピー
             }
         }
         return result;
@@ -82,8 +83,8 @@ public class Converter {
     }
     
     /**
-     * byte配列（リトルエンディアン）を16進数文字列に変換します。
-     * @param bytes 変換するbyte配列
+     * byte配列（リトルエンディアン）を16進数文字列（バイト列）に変換します。
+     * @param bytes 変換するbyte配列（リトルエンディアン）
      * @return 16進数文字列
      */
     public static String fromBytesToHexString(byte[] bytes) {

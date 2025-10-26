@@ -31,6 +31,21 @@ public class AccessRoute {
     /**
      * コンストラクタ
      * 
+     * @param networkNumber ネットワーク番号
+     * @param plcStationNumber PLC局番号
+     * @param unitIoNumber 要求先ユニットI/O番号
+     * @param unitStationNumber 要求先ユニット局番号
+     */
+    public AccessRoute(byte networkNumber, byte plcStationNumber, short unitIoNumber, byte unitStationNumber) {
+        _networkNumberByteArray     = new byte[] {networkNumber};
+        _plcStationNumberByteArray  = new byte[] {plcStationNumber};
+        _unitIoNumberByteArray      = Converter.fromIntToByteArray((int)unitIoNumber, 2);
+        _unitStationNumberByteArray = new byte[] {unitStationNumber};
+    }
+
+    /**
+     * コンストラクタ
+     * 
      * @param byteArray アクセス経路の5バイトデータ
      * @throws IllegalArgumentException バイト数が5でない場合
      */

@@ -52,7 +52,7 @@ public class DeviceCodeEnumTest {
                 case DirectAccessInput:
                 case DirectAccessOutput:
                 case FileRegisterSerialNumberAccessMethod:
-                case ExtendedLinkRegister:
+                // case ExtendedLinkRegister:
                     yield 16;
                 default:
                     yield 10;

@@ -412,31 +412,66 @@ public class Client {
     }
 
     
+    /**
+     * デバッグモードの設定状態を取得します。
+     * 
+     * @return デバッグモードが有効な場合はtrue、無効な場合はfalse
+     */
     public boolean getIsDebug() {
         return _isDebug;
     }
 
+    /**
+     * 接続先ホスト名またはIPアドレスを取得します。
+     * 
+     * @return 接続先ホスト名またはIPアドレス
+     */
     public String getHost() {
         return _host;
     }
 
+    /**
+     * 接続先ポート番号を取得します。
+     * 
+     * @return 接続先ポート番号
+     */
     public int getPort() {
         return _port;
     }
 
+    /**
+     * 現在のTCPソケットを取得します。
+     * 
+     * @return TCPソケット（未接続の場合はnull）
+     */
     public Socket getSocket() {
         return _so;
     }
 
+    /**
+     * 現在の出力ストリームを取得します。
+     * 
+     * @return 出力ストリーム（未接続の場合はnull）
+     */
     public OutputStream getOutput() {
         return _out;
     }
 
+    /**
+     * 現在の入力ストリームを取得します。
+     * 
+     * @return 入力ストリーム（未接続の場合はnull）
+     */
     public BufferedInputStream getInput() {
         return _in;
     }
 
-    public Builder get_builder() {
+    /**
+     * フレーム構築器を取得します。
+     * 
+     * @return フレーム構築器
+     */
+    public Builder getBuilder() {
         return _builder;
     }
 }

@@ -14,246 +14,246 @@ public enum DeviceCodeEnum {
      * 特殊リレー
      * 記号: SM
      */
-    SpecialRelay("SM", DataTypeEnum.BIT, 10),
+    SpecialRelay("SM", DataTypeEnum.BIT, 10, new Bytes("91")),
 
     /**
      * 特殊レジスター
      * 記号: SD
      */
-    SpecialRegister("SD", DataTypeEnum.WORD, 10),
+    SpecialRegister("SD", DataTypeEnum.WORD, 10, new Bytes("A9")),
 
     /**
      * 入力
      * 記号: X
      */
-    Input("X", DataTypeEnum.BIT, 16),
+    Input("X", DataTypeEnum.BIT, 16, new Bytes("9C")),
 
     /**
      * 出力
      * 記号: Y
      */
-    Output("Y", DataTypeEnum.BIT, 16),
+    Output("Y", DataTypeEnum.BIT, 16, new Bytes("9D")),
 
     /**
      * 内部リレー
      * 記号: M
      */
-    InternalRelay("M", DataTypeEnum.BIT, 10),
+    InternalRelay("M", DataTypeEnum.BIT, 10, new Bytes("90")),
 
     /**
      * ラッチリレー
      * 記号: L
      */
-    LatchRelay("L", DataTypeEnum.BIT, 10),
+    LatchRelay("L", DataTypeEnum.BIT, 10, new Bytes("92")),
 
     /**
      * アナンシェーター
      * 記号: F
      */
-    Annunciator("F", DataTypeEnum.BIT, 10),
+    Annunciator("F", DataTypeEnum.BIT, 10, new Bytes("93")),
 
     /**
      * エッジリレー
      * 記号: V
      */
-    EdgeRelay("V", DataTypeEnum.BIT, 10),
+    EdgeRelay("V", DataTypeEnum.BIT, 10, new Bytes("94")),
 
     /**
      * リンクリレー
      * 記号: B
      */
-    LinkRelay("B", DataTypeEnum.BIT, 16),
+    LinkRelay("B", DataTypeEnum.BIT, 16, new Bytes("A0")),
 
     /**
      * データレジスター
      * 記号: D
      */
-    DataRegister("D", DataTypeEnum.WORD, 10),
+    DataRegister("D", DataTypeEnum.WORD, 10, new Bytes("A8")),
 
     /**
      * リンクレジスター
      * 記号: W
      */
-    LinkRegister("W", DataTypeEnum.WORD, 16),
+    LinkRegister("W", DataTypeEnum.WORD, 16, new Bytes("B4")),
 
     /**
      * タイマー(接点)
      * 記号: TS
      */
-    TimerContact("TS", DataTypeEnum.BIT, 10),
+    TimerContact("TS", DataTypeEnum.BIT, 10, new Bytes("C1")),
 
     /**
      * タイマー(コイル)
      * 記号: TC
      */
-    TimerCoil("TC", DataTypeEnum.BIT, 10),
+    TimerCoil("TC", DataTypeEnum.BIT, 10, new Bytes("C0")),
 
     /**
      * タイマー(現在値)
      * 記号: TN
      */
-    TimerCurrentValue("TN", DataTypeEnum.WORD, 10),
+    TimerCurrentValue("TN", DataTypeEnum.WORD, 10, new Bytes("C2")),
 
     /**
      * ロングタイマー(接点)
      * 記号: LTS
      */
-    LongTimerContact("LTS", DataTypeEnum.BIT, 10),
+    LongTimerContact("LTS", DataTypeEnum.BIT, 10, new Bytes("51")),
 
     /**
      * ロングタイマー(コイル)
      * 記号: LTC
      */
-    LongTimerCoil("LTC", DataTypeEnum.BIT, 10),
+    LongTimerCoil("LTC", DataTypeEnum.BIT, 10, new Bytes("50")),
 
     /**
      * ロングタイマー(現在値)
      * 記号: LTN
      */
-    LongTimerCurrentValue("LTN", DataTypeEnum.DWORD, 10),
+    LongTimerCurrentValue("LTN", DataTypeEnum.DWORD, 10, new Bytes("52")),
 
     /**
      * 積算タイマー(接点)
      * 記号: STS
      */
-    RetentiveTimerContact("STS", DataTypeEnum.BIT, 10),
+    RetentiveTimerContact("STS", DataTypeEnum.BIT, 10, new Bytes("C7")),
 
     /**
      * 積算タイマー(コイル)
      * 記号: STC
      */
-    RetentiveTimerCoil("STC", DataTypeEnum.BIT, 10),
+    RetentiveTimerCoil("STC", DataTypeEnum.BIT, 10, new Bytes("C6")),
 
     /**
      * 積算タイマー(現在値)
      * 記号: STN
      */
-    RetentiveTimerCurrentValue("STN", DataTypeEnum.WORD, 10),
+    RetentiveTimerCurrentValue("STN", DataTypeEnum.WORD, 10, new Bytes("C8")),
 
     /**
      * ロング積算タイマー(接点)
      * 記号: LSTS
      */
-    LongRetentiveTimerContact("LSTS", DataTypeEnum.BIT, 10),
+    LongRetentiveTimerContact("LSTS", DataTypeEnum.BIT, 10, new Bytes("59")),
 
     /**
      * ロング積算タイマー(コイル)
      * 記号: LSTC
      */
-    LongRetentiveTimerCoil("LSTC", DataTypeEnum.BIT, 10),
+    LongRetentiveTimerCoil("LSTC", DataTypeEnum.BIT, 10, new Bytes("58")),
 
     /**
      * ロング積算タイマー(現在値)
      * 記号: LSTN
      */
-    LongRetentiveTimerCurrentValue("LSTN", DataTypeEnum.DWORD, 10),
+    LongRetentiveTimerCurrentValue("LSTN", DataTypeEnum.DWORD, 10, new Bytes("5A")),
 
     /**
      * カウンター(接点)
      * 記号: CS
      */
-    CounterContact("CS", DataTypeEnum.BIT, 10),
+    CounterContact("CS", DataTypeEnum.BIT, 10, new Bytes("C4")),
 
     /**
      * カウンター(コイル)
      * 記号: CC
      */
-    CounterCoil("CC", DataTypeEnum.BIT, 10),
+    CounterCoil("CC", DataTypeEnum.BIT, 10, new Bytes("C3")),
 
     /**
      * カウンター(現在値)
      * 記号: CN
      */
-    CounterCurrentValue("CN", DataTypeEnum.WORD, 10),
+    CounterCurrentValue("CN", DataTypeEnum.WORD, 10, new Bytes("C5")),
 
     /**
      * ロングカウンター(接点)
      * 記号: LCS
      */
-    LongCounterContact("LCS", DataTypeEnum.BIT, 10),
+    LongCounterContact("LCS", DataTypeEnum.BIT, 10, new Bytes("55")),
 
     /**
      * ロングカウンター(コイル)
      * 記号: LCC
      */
-    LongCounterCoil("LCC", DataTypeEnum.BIT, 10),
+    LongCounterCoil("LCC", DataTypeEnum.BIT, 10, new Bytes("54")),
 
     /**
      * ロングカウンター(現在値)
      * 記号: LCN
      */
-    LongCounterCurrentValue("LCN", DataTypeEnum.DWORD, 10),
+    LongCounterCurrentValue("LCN", DataTypeEnum.DWORD, 10, new Bytes("56")),
     
     /**
      * リンク特殊リレー
      * 記号: SB
      */
-    LinkSpecialRelay("SB", DataTypeEnum.BIT, 16),
+    LinkSpecialRelay("SB", DataTypeEnum.BIT, 16, new Bytes("A1")),
 
     /**
      * リンク特殊レジスター
      * 記号: SW
      */
-    LinkSpecialRegister("SW", DataTypeEnum.WORD, 16),
+    LinkSpecialRegister("SW", DataTypeEnum.WORD, 16, new Bytes("B5")),
 
     /**
      * ステップリレー
      * 記号: S
      */
-    StepRelay("S", DataTypeEnum.BIT, 10),
+    StepRelay("S", DataTypeEnum.BIT, 10, new Bytes("98")),
 
     /**
      * ダイレクトアクセス入力
      * 記号: DX
      */
-    DirectAccessInput("DX", DataTypeEnum.BIT, 16),
+    DirectAccessInput("DX", DataTypeEnum.BIT, 16, new Bytes("A2")),
 
     /**
      * ダイレクトアクセス出力
      * 記号: DY
      */
-    DirectAccessOutput("DY", DataTypeEnum.BIT, 16),
+    DirectAccessOutput("DY", DataTypeEnum.BIT, 16, new Bytes("A3")),
 
     /**
      * インデックスレジスター
      * 記号: Z
      */
-    IndexRegister("Z", DataTypeEnum.WORD, 10),
+    IndexRegister("Z", DataTypeEnum.WORD, 10, new Bytes("CC")),
 
     /**
      * ロングインデックスレジスター
      * 記号: LZ
      */
-    LongIndexRegister("LZ", DataTypeEnum.DWORD, 10),
+    LongIndexRegister("LZ", DataTypeEnum.DWORD, 10, new Bytes("62")),
 
     /**
      * ファイルレジスター(ブロック切換え方式)
      * 記号: R
      */
-    FileRegisterBlockSwitchingMethod("R", DataTypeEnum.WORD, 10),
+    FileRegisterBlockSwitchingMethod("R", DataTypeEnum.WORD, 10, new Bytes("AF")),
 
     /**
      * ファイルレジスター(連番アクセス方式)
      * 記号: ZR
      */
-    FileRegisterSerialNumberAccessMethod("ZR", DataTypeEnum.WORD, 16),
+    FileRegisterSerialNumberAccessMethod("ZR", DataTypeEnum.WORD, 16, new Bytes("B0")),
 
     /**
      * 拡張データレジスター
      * 記号: D
      */
-    ExtendedDataRegister("D", DataTypeEnum.WORD, 10),
+    // ExtendedDataRegister("D", DataTypeEnum.WORD, 10, new Bytes("A8")),
 
     /**
      * 拡張リンクレジスター
      * 記号: W
      */
-    ExtendedLinkRegister("W", DataTypeEnum.WORD, 16),
+    // ExtendedLinkRegister("W", DataTypeEnum.WORD, 16, new Bytes("B4")),
 
     /** リフレッシュデータレジスタ
      * 記号: RD
      */
-    RefreshDataRegister("RD", DataTypeEnum.WORD, 10),
+    RefreshDataRegister("RD", DataTypeEnum.WORD, 10, new Bytes("2C")),
     ;
 
     /** デバイス記号 */
@@ -262,6 +262,8 @@ public enum DeviceCodeEnum {
     private final DataTypeEnum _dataType;
     /** デバイス番号の基数（10進数または16進数） */
     private final int _deviceNumberBase;
+    /** デバイスコードのバイトデータ */
+    private final Bytes _deviceCodeBytes;
 
     /**
      * コンストラクタ
@@ -270,10 +272,11 @@ public enum DeviceCodeEnum {
      * @param dataType データ型
      * @param deviceNumberBase デバイス番号の基数
      */
-    DeviceCodeEnum(String symbol, DataTypeEnum dataType, int deviceNumberBase) {
+    DeviceCodeEnum(String symbol, DataTypeEnum dataType, int deviceNumberBase, Bytes deviceCodeBytes) {
         this._symbol = symbol;
         this._dataType = dataType;
         this._deviceNumberBase = deviceNumberBase;
+        this._deviceCodeBytes = deviceCodeBytes;
     }
 
     /**
@@ -367,42 +370,9 @@ public enum DeviceCodeEnum {
      * デバイスコードのバイトデータを取得します。
      * 
      * @return デバイスコードのBytesオブジェクト
-     * @throws IllegalArgumentException 指定されたデバイスが使用できない場合
      */
     public Bytes getBytes() {
-        switch (this) {
-            case SpecialRelay:                         return new Bytes("91");
-            case Input:                                return new Bytes("9C");
-            case SpecialRegister:                      return new Bytes("A9");
-            case Output:                               return new Bytes("9D");
-            case InternalRelay:                        return new Bytes("90");
-            case LatchRelay:                           return new Bytes("92");
-            case Annunciator:                          return new Bytes("93");
-            case EdgeRelay:                            return new Bytes("94");
-            case LinkRelay:                            return new Bytes("A0");
-            case DataRegister:                         return new Bytes("A8");
-            case LinkRegister:                         return new Bytes("B4");
-            case TimerContact:                         return new Bytes("C1");
-            case TimerCoil:                            return new Bytes("C0");
-            case TimerCurrentValue:                    return new Bytes("C2");
-            case RetentiveTimerContact:                return new Bytes("C7");
-            case RetentiveTimerCoil:                   return new Bytes("C6");
-            case RetentiveTimerCurrentValue:           return new Bytes("C8");
-            case CounterContact:                       return new Bytes("C4");
-            case CounterCoil:                          return new Bytes("C3");
-            case CounterCurrentValue:                  return new Bytes("C5");
-            case LinkSpecialRelay:                     return new Bytes("A1");
-            case LinkSpecialRegister:                  return new Bytes("B5");
-            case StepRelay:                            return new Bytes("98");
-            case DirectAccessInput:                    return new Bytes("A2");
-            case DirectAccessOutput:                   return new Bytes("A3");
-            case IndexRegister:                        return new Bytes("CC");
-            case FileRegisterBlockSwitchingMethod:     return new Bytes("AF");
-            case FileRegisterSerialNumberAccessMethod: return new Bytes("B0");
-            case ExtendedDataRegister:                 return new Bytes("A8");
-            case ExtendedLinkRegister:                 return new Bytes("B4");
-            default: throw new IllegalArgumentException("指定のデバイスは使用できません。");
-        }
+        return _deviceCodeBytes;
     }
 
     /**

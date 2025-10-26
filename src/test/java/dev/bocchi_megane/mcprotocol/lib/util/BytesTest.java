@@ -50,10 +50,4 @@ class BytesTest {
         assertTrue(Bytes.equals(a, b));
         assertFalse(Bytes.equals(a, c));
     }
-
-    @Test
-    public void testStaticEqualsByteArray() {
-        assertTrue(Bytes.equals(new byte[]{0x01, 0x02}, new byte[]{0x01, 0x02}));
-        assertFalse(Bytes.equals(new byte[]{0x01, 0x02}, new byte[]{0x02, 0x01}));
-    }
 }

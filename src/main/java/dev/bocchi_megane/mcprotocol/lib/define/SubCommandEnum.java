@@ -9,24 +9,33 @@ import dev.bocchi_megane.mcprotocol.lib.util.Bytes;
  */
 public enum SubCommandEnum {
     /** MELSEC-Q/Lシリーズ ワードデバイス用 */
-    Q_WORD("0000"),
+    Q_WORD(new Bytes(0x0000, 2)),
     /** MELSEC-Q/Lシリーズ ビットデバイス用 */
-    Q_BIT ("0001"),
+    Q_BIT (new Bytes(0x0001, 2)),
     
     /** MELSEC iQ-Rシリーズ ワードデバイス用 */
-    IQ_R_WORD("0002"),
+    // IQ_R_WORD("0002"),
     /** MELSEC iQ-Rシリーズ ビットデバイス用 */
-    IQ_R_BIT ("0003"),
+    // IQ_R_BIT ("0003"),
 
     /** モニタ条件指定あり */
-    MONITOR_CONDITION("0040"),
+    MONITOR_CONDITION(new Bytes(0x0040, 2)),
 
     /** サブコマンド指定なし */
-    NONE("0000"),
+    NONE(new Bytes(0x0000, 2)),
     ;
     
     /** サブコマンドのバイトデータ */
     private final Bytes _bytes;
+    
+    /**
+     * コンストラクタ
+     * 
+     * @param bytes
+     */
+    SubCommandEnum(Bytes bytes) {
+        this._bytes = bytes;
+    }
 
     /**
      * コンストラクタ
@@ -34,6 +43,9 @@ public enum SubCommandEnum {
      * @param hexString 16進文字列形式のサブコマンド値
      */
     SubCommandEnum(String hexString) {
+        if (hexString.length() != 4) {
+            throw new IllegalArgumentException("サブコマンドは4文字の16進数文字列で指定してください。");
+        }
         this._bytes = new Bytes(hexString);
     }
 
