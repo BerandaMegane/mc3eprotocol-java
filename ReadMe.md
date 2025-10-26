@@ -5,7 +5,7 @@
 Java で PLC と MC プロトコルで通信するクライアントプログラムを作りました。  
 対応する規格は MC プロトコル (3E フレーム) の一部のコマンドです。
 
-* Javadoc [docs/apidocs/index.html]
+* Javadoc [docs/apidocs/index.html](docs/apidocs/index.html)
 
 ### 動作環境
 
@@ -35,7 +35,7 @@ Qiita - [@satosisotas Works2でSLMP通信を試すための内蔵Ethernet設定]
 
 ### サンプルプログラムの作成
 
-[sample] ディレクトリの [sample/ClientSample.java] を作業ディレクトリに作成します。  
+[sample](sample) ディレクトリの [ClientSample.java](sample/ClientSample.java) を作業ディレクトリに作成します。  
 接続先の PLC の IP アドレスとポート番号へ変更してください。
 
 ```
@@ -44,6 +44,7 @@ import dev.bocchi_megane.mcprotocol.lib.Client;
 public class ClientSample {
     public static void main(String[] args) {
         boolean debug = true;
+        // 接続先 PLC に合わせて修正する
         Client client = new Client("127.0.0.1", 5000, debug);
         System.out.println("接続先: " + client.getHost() + ":" + client.getPort());
         client.connect();
