@@ -1,4 +1,4 @@
-# mcprotocol-java
+# mc3eprotocol-java
 
 ## はじめに
 
