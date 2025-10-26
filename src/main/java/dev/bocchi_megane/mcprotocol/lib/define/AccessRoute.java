@@ -10,16 +10,16 @@ import dev.bocchi_megane.mcprotocol.lib.util.Converter;
 public class AccessRoute {
 
     /** ネットワーク番号 */
-    private byte[] networkNumberBytes;
+    private byte[] _networkNumberByteArray;
     /** PLC局番号 */
-    private byte[] plcStationNumberBytes;
+    private byte[] _plcStationNumberByteArray;
     /** 要求先ユニットI/O番号 */
-    private byte[] unitIoNumberBytes;
+    private byte[] _unitIoNumberByteArray;
     /** 要求先ユニット局番号 */
-    private byte[] unitStationNumberBytes;
+    private byte[] _unitStationNumberByteArray;
 
     /**
-     * 直接TCP/IP接続時のデフォルトアクセス経路
+     * 自局接続時のアクセス経路（デフォルト）
      */
     public static final AccessRoute DEFAULT = new AccessRoute(new byte[] {
         (byte)0x00,  // ネットワーク番号
@@ -38,10 +38,10 @@ public class AccessRoute {
         if (byteArray.length != 5) {
             throw new IllegalArgumentException("アクセス経路のバイト数が正しくありません。正しくは 5 バイトです。");
         }
-        networkNumberBytes     = new byte[] {byteArray[0]};
-        plcStationNumberBytes  = new byte[] {byteArray[1]};
-        unitIoNumberBytes      = new byte[] {byteArray[2], byteArray[3]};
-        unitStationNumberBytes = new byte[] {byteArray[4]};
+        _networkNumberByteArray     = new byte[] {byteArray[0]};
+        _plcStationNumberByteArray  = new byte[] {byteArray[1]};
+        _unitIoNumberByteArray      = new byte[] {byteArray[2], byteArray[3]};
+        _unitStationNumberByteArray = new byte[] {byteArray[4]};
     }
 
     /**
@@ -51,10 +51,10 @@ public class AccessRoute {
      */
     public byte[] toByteArray() {
         return Converter.concatByteArrays(
-            networkNumberBytes,
-            plcStationNumberBytes,
-            unitIoNumberBytes,
-            unitStationNumberBytes
+            _networkNumberByteArray,
+            _plcStationNumberByteArray,
+            _unitIoNumberByteArray,
+            _unitStationNumberByteArray
         );
     }
 
@@ -67,10 +67,10 @@ public class AccessRoute {
     public String toString() {
         return Converter.hereDoc(s->s.trim(), System.lineSeparator(),
             "AccessRoute: {",
-            "- networkNumber: "     + Converter.fromBytesToHexString(networkNumberBytes),
-            "- plcStationNumber: "  + Converter.fromBytesToHexString(plcStationNumberBytes),
-            "- unitIoNumber: "      + Converter.fromBytesToHexString(unitIoNumberBytes),
-            "- unitStationNumber: " + Converter.fromBytesToHexString(unitStationNumberBytes),
+            "- networkNumber: "     + Converter.fromBytesToHexString(_networkNumberByteArray),
+            "- plcStationNumber: "  + Converter.fromBytesToHexString(_plcStationNumberByteArray),
+            "- unitIoNumber: "      + Converter.fromBytesToHexString(_unitIoNumberByteArray),
+            "- unitStationNumber: " + Converter.fromBytesToHexString(_unitStationNumberByteArray),
             "}"
         );
     }
@@ -80,8 +80,8 @@ public class AccessRoute {
      * 
      * @return ネットワーク番号
      */
-    public byte[] getNetworkNumberBytes() {
-        return networkNumberBytes;
+    public byte[] getNetworkNumberByteArray() {
+        return _networkNumberByteArray;
     }
 
     /**
@@ -89,8 +89,8 @@ public class AccessRoute {
      * 
      * @return PLC局番号
      */
-    public byte[] getPlcStationNumberBytes() {
-        return plcStationNumberBytes;
+    public byte[] getPlcStationNumberByteArray() {
+        return _plcStationNumberByteArray;
     }
 
     /**
@@ -98,8 +98,8 @@ public class AccessRoute {
      * 
      * @return 要求先ユニットI/O番号
      */
-    public byte[] getUnitIoNumberBytes() {
-        return unitIoNumberBytes;
+    public byte[] getUnitIoNumberByteArray() {
+        return _unitIoNumberByteArray;
     }
 
     /**
@@ -107,7 +107,7 @@ public class AccessRoute {
      * 
      * @return 要求先ユニット局番号
      */
-    public byte[] getUnitStationNumberBytes() {
-        return unitStationNumberBytes;
+    public byte[] getUnitStationNumberByteArray() {
+        return _unitStationNumberByteArray;
     }
 }

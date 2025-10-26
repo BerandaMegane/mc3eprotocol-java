@@ -13,10 +13,10 @@ public class AccessRouteTest {
 
         AccessRoute route = new AccessRoute(bytes);
 
-        assertArrayEquals(new byte[] {0x00}, route.getNetworkNumberBytes());
-        assertArrayEquals(new byte[] {(byte)0xff}, route.getPlcStationNumberBytes());
-        assertArrayEquals(new byte[] {(byte)0xff, 0x03}, route.getUnitIoNumberBytes());
-        assertArrayEquals(new byte[] {0x00}, route.getUnitStationNumberBytes());
+        assertArrayEquals(new byte[] {0x00}, route.getNetworkNumberByteArray());
+        assertArrayEquals(new byte[] {(byte)0xff}, route.getPlcStationNumberByteArray());
+        assertArrayEquals(new byte[] {(byte)0xff, 0x03}, route.getUnitIoNumberByteArray());
+        assertArrayEquals(new byte[] {0x00}, route.getUnitStationNumberByteArray());
     }
 
     @Test
@@ -48,13 +48,9 @@ public class AccessRouteTest {
     public void testDefaultAccessRoute() {
         AccessRoute route = AccessRoute.DEFAULT;
 
-        assertArrayEquals(new byte[]{(byte)0x00}, route.getNetworkNumberBytes());
-        assertArrayEquals(new byte[]{(byte)0xFF}, route.getPlcStationNumberBytes());
-        assertArrayEquals(new byte[]{(byte)0xFF, 0x03}, route.getUnitIoNumberBytes());
-        assertArrayEquals(new byte[]{(byte)0x00}, route.getUnitStationNumberBytes());
-    }
-
-    public static void main(String[] args) {
-        System.out.println("AccessRouteTest");
+        assertArrayEquals(new byte[]{(byte)0x00}, route.getNetworkNumberByteArray());
+        assertArrayEquals(new byte[]{(byte)0xFF}, route.getPlcStationNumberByteArray());
+        assertArrayEquals(new byte[]{(byte)0xFF, 0x03}, route.getUnitIoNumberByteArray());
+        assertArrayEquals(new byte[]{(byte)0x00}, route.getUnitStationNumberByteArray());
     }
 }
