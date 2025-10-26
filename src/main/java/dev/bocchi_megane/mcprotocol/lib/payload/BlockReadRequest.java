@@ -4,6 +4,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 import dev.bocchi_megane.mcprotocol.lib.define.CommandEnum;
+import dev.bocchi_megane.mcprotocol.lib.define.DataTypeEnum;
 import dev.bocchi_megane.mcprotocol.lib.define.DeviceCodeEnum;
 import dev.bocchi_megane.mcprotocol.lib.define.DeviceSpec;
 import dev.bocchi_megane.mcprotocol.lib.define.SubCommandEnum;
@@ -45,6 +46,22 @@ public class BlockReadRequest extends AbstractRequest {
         this._isBitDevice = isBitDevice;
 
         _command = CommandEnum.BLOCK_READ;
+        DataTypeEnum dataType = deviceSpec.getDeviceCode().getDataType();
+        switch (dataType) {
+            case BIT:
+                _isBitDevice = isBitDevice;
+                break;
+            case WORD:
+            case DWORD:
+                if (isBitDevice) {
+                    throw new IllegalArgumentException("ワードデバイスでビット読込みはできません");
+                }
+                _isBitDevice = false;
+                break;
+            default:
+                throw new IllegalArgumentException("不明なデータ型です: " + dataType);
+        }
+        
         if (_isBitDevice) {
             _subCommand = SubCommandEnum.Q_BIT;
         } else {
@@ -95,12 +112,12 @@ public class BlockReadRequest extends AbstractRequest {
     /**
      * バイト配列から要求データを解析してメンバ変数にセットします。
      *
-     * @param bytes 要求データ（監視タイマーより後ろ）
+     * @param byteArray 要求データ（監視タイマーより後ろ）
      */
     @Override
-    public void parse(byte[] bytes) {
+    public void parse(byte[] byteArray) {
         // バッファ
-        ByteBuffer buffer = ByteBuffer.wrap(bytes);
+        ByteBuffer buffer = ByteBuffer.wrap(byteArray);
         buffer.order(ByteOrder.LITTLE_ENDIAN);
         byte[] data;
 

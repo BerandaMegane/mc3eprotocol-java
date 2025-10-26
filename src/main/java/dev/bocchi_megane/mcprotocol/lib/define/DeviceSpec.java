@@ -124,4 +124,8 @@ public class DeviceSpec {
         int base = deviceCode.getDeviceNumberBase();
         return deviceCode.getDeviceSymbol() + Integer.toString(deviceNumber, base);
     }
+
+    public static int getByteArrayLength() {
+        return DeviceCodeEnum.getDeviceNumberLength() + DeviceCodeEnum.getDeviceCodeLength();
+    }
 }
