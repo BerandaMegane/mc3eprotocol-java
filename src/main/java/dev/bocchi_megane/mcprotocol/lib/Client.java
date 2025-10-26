@@ -54,7 +54,7 @@ public class Client {
     private short _monitorTimer;
 
     /** フレーム構築器 */
-    Builder _builder;
+    private Builder _builder;
 
     /**
      * コンストラクタ
@@ -91,6 +91,13 @@ public class Client {
         return false;
     }
 
+    /**
+     * PLCへの接続を例外処理なしで実行します。
+     * TCPソケットを作成し、タイムアウトを設定して入出力ストリームを初期化します。
+     * このメソッドは例外をキャッチしないため、呼び出し元で適切な例外処理を行う必要があります。
+     * 
+     * @throws Exception ソケット接続、ストリーム初期化時に発生する可能性のある例外
+     */
     public void unsafe_connect() throws Exception {
         _so = new Socket(_host, _port);
         _so.setSoTimeout(1000);  // タイムアウト時間
@@ -427,5 +434,9 @@ public class Client {
 
     public BufferedInputStream getInput() {
         return _in;
+    }
+
+    public Builder get_builder() {
+        return _builder;
     }
 }
