@@ -41,7 +41,7 @@ public class AbnormalResponse extends AbstractResponse {
      * @return 空のバイト配列
      */
     @Override
-    public byte[] toBytes() {
+    public byte[] toByteArray() {
         return new byte[]{};
     }
 

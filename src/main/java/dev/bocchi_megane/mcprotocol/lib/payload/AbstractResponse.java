@@ -21,5 +21,5 @@ public abstract class AbstractResponse {
      *
      * @return 応答データのバイト配列
      */
-    public abstract byte[] toBytes();
+    public abstract byte[] toByteArray();
 }

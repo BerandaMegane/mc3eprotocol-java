@@ -4,6 +4,8 @@ import java.io.BufferedInputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
+import javax.management.monitor.Monitor;
+
 import dev.bocchi_megane.mcprotocol.lib.define.AccessRoute;
 import dev.bocchi_megane.mcprotocol.lib.define.DataTypeEnum;
 import dev.bocchi_megane.mcprotocol.lib.define.DeviceSpec;
@@ -21,6 +23,10 @@ import dev.bocchi_megane.mcprotocol.lib.payload.BlockWordReadResponse;
 import dev.bocchi_megane.mcprotocol.lib.payload.BlockWriteRequest;
 import dev.bocchi_megane.mcprotocol.lib.payload.EchoTestRequest;
 import dev.bocchi_megane.mcprotocol.lib.payload.EchoTestResponse;
+import dev.bocchi_megane.mcprotocol.lib.payload.MonitorDeviceReadRequest;
+import dev.bocchi_megane.mcprotocol.lib.payload.MonitorDeviceReadResponse;
+import dev.bocchi_megane.mcprotocol.lib.payload.MonitorDeviceRegisterRequest;
+import dev.bocchi_megane.mcprotocol.lib.payload.NoneResponse;
 import dev.bocchi_megane.mcprotocol.lib.payload.PlcTypeNameRequest;
 import dev.bocchi_megane.mcprotocol.lib.payload.PlcTypeNameResponse;
 import dev.bocchi_megane.mcprotocol.lib.payload.RemoteRunRequest;
@@ -55,6 +61,9 @@ public class Client {
 
     /** フレーム構築器 */
     private Builder _builder;
+
+    /** 登録したモニタデバイス情報 */
+    private MonitorDeviceRegisterRequest _monitorRegisterRequest;
 
     /**
      * コンストラクタ
@@ -361,6 +370,31 @@ public class Client {
         } else {
             System.out.println("異常: データは一致していません");
         }
+    }
+
+    /**
+     * モニタデバイスの登録を実行します。
+     * 
+     * @param wordDeviceSpecs ワードデバイス仕様の配列
+     * @param dwordDeviceSpecs ダブルワードデバイス仕様の配列
+     */
+    public void registerMonitorDevice(DeviceSpec[] wordDeviceSpecs, DeviceSpec[] dwordDeviceSpecs) {
+        MonitorDeviceRegisterRequest requestPayload = new MonitorDeviceRegisterRequest(wordDeviceSpecs, dwordDeviceSpecs);
+        sendRequest(requestPayload);
+        _monitorRegisterRequest = requestPayload;
+    }
+
+    /**
+     * モニタデバイス値の取得を実行します。
+     * @return
+     */
+    public MonitorDeviceReadResponse getMonitorDeviceValues() {
+        if (_monitorRegisterRequest == null) {
+            throw new IllegalStateException("モニタデバイスが登録されていません");
+        }
+        MonitorDeviceReadRequest requestPayload = new MonitorDeviceReadRequest(_monitorRegisterRequest);
+        MonitorDeviceReadResponse responsePayload = (MonitorDeviceReadResponse)sendRequest(requestPayload);
+        return responsePayload;
     }
 
     /**

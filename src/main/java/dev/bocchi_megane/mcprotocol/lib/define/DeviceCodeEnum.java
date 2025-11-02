@@ -384,4 +384,9 @@ public enum DeviceCodeEnum {
     public int getDeviceNumberBase() {
         return _deviceNumberBase;
     }
+
+    @Override
+    public String toString() {
+        return _symbol;
+    }
 }

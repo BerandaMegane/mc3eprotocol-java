@@ -63,7 +63,7 @@ public class EchoTestResponse extends AbstractResponse {
      * @return 応答データのバイト配列
      */
     @Override
-    public byte[] toBytes() {
+    public byte[] toByteArray() {
         return Converter.concatByteArrays(
             Converter.fromIntToByteArray(_data.length, 2),
             _data

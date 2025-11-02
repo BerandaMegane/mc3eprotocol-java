@@ -31,6 +31,29 @@ public class MonitorDeviceRegisterRequest extends AbstractRequest {
         parse(request);
     }
 
+    public MonitorDeviceRegisterRequest(DeviceSpec[] wordDeviceSpecs, DeviceSpec[] dwordDeviceSpecs) {
+        // コマンド、サブコマンド設定
+        _command = CommandEnum.MONITOR_REGISTER;
+        _subCommand = SubCommandEnum.NONE;
+
+        // デバイス仕様設定
+        if (wordDeviceSpecs != null) {
+            _wordDeviceSpecs = wordDeviceSpecs;
+            _wordDevicePoint = (short)wordDeviceSpecs.length;
+        } else {
+            _wordDeviceSpecs = new DeviceSpec[0];
+            _wordDevicePoint = 0;
+        }
+        if (dwordDeviceSpecs != null) {
+            _dwordDeviceSpecs = dwordDeviceSpecs;
+            _dwordDevicePoint = (short)dwordDeviceSpecs.length;
+        } else {
+            _dwordDeviceSpecs = new DeviceSpec[0];
+            _dwordDevicePoint = 0;
+        }
+
+    }
+
     /**
      * 応答データを解析して応答オブジェクトを生成します。
      * 応答データは不要なため、NoneResponseオブジェクトを返します。
@@ -92,12 +115,12 @@ public class MonitorDeviceRegisterRequest extends AbstractRequest {
      * バイト配列から要求データを解析してメンバ変数にセットします。
      * (参考: sh080003ah p.118)
      *
-     * @param byteArray 要求データ（監視タイマーより後ろ）
+     * @param request 要求データ（監視タイマーより後ろ）
      */
     @Override
-    public void parse(byte[] byteArray) {
+    public void parse(byte[] request) {
         // バッファ
-        ByteBuffer buffer = ByteBuffer.wrap(byteArray);
+        ByteBuffer buffer = ByteBuffer.wrap(request);
         buffer.order(ByteOrder.LITTLE_ENDIAN);
         byte[] data;
 
@@ -149,4 +172,19 @@ public class MonitorDeviceRegisterRequest extends AbstractRequest {
         }
     }
 
+    public int getWordDevicePoint() {
+        return _wordDevicePoint;
+    }
+
+    public int getDwordDevicePoint() {
+        return _dwordDevicePoint;
+    }
+
+    public DeviceSpec[] getWordDeviceSpecs() {
+        return _wordDeviceSpecs;
+    }
+
+    public DeviceSpec[] getDwordDeviceSpecs() {
+        return _dwordDeviceSpecs;
+    }
 }

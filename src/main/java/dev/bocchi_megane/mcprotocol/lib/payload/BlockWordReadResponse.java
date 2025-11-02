@@ -53,7 +53,7 @@ public class BlockWordReadResponse extends AbstractResponse {
      * @return 変換されたバイト配列
      */
     @Override
-    public byte[] toBytes() {
+    public byte[] toByteArray() {
         return Converter.fromShortArrayToBytes(_readData);
     }
 }

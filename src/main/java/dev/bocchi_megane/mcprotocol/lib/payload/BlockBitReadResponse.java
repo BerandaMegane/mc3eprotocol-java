@@ -57,7 +57,7 @@ public class BlockBitReadResponse extends AbstractResponse {
      * @return 変換されたバイト配列
      */
     @Override
-    public byte[] toBytes() {
+    public byte[] toByteArray() {
         byte[] retData = new byte[_readData.length / 2];
         for (int i=0; i<retData.length; i++) {
             byte temp0 = (byte)(_readData[i*2 + 0] ? 0x1 : 0x0);

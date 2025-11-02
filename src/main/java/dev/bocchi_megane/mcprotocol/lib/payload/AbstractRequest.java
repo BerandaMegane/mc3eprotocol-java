@@ -19,10 +19,10 @@ public abstract class AbstractRequest implements IPayload {
      * 応答を解析します。
      * 終了コードより後ろのデータを渡して応答オブジェクトを生成します。
      *
-     * @param response 応答データ（終了コードより後ろ）
+     * @param responseData 応答データ（終了コードより後ろ）
      * @return 解析された応答オブジェクト
      */
-    public abstract AbstractResponse parseResponse(byte[] response);
+    public abstract AbstractResponse parseResponse(byte[] responseData);
     
     /**
      * 監視タイマーより後ろのバイト列に変換します。
@@ -53,9 +53,9 @@ public abstract class AbstractRequest implements IPayload {
      * バイト列から解析してメンバ変数にセットします。
      * 監視タイマーより後ろのデータを渡して要求オブジェクトを復元します。
      *
-     * @param request 要求データ（監視タイマーより後ろ）
+     * @param requestData 要求データ（監視タイマーより後ろ）
      */
-    public abstract void parse(byte[] request);
+    public abstract void parse(byte[] requestData);
 
     /**
      * リクエストの情報をコンソールに表示します。

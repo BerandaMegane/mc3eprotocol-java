@@ -128,4 +128,21 @@ public class DeviceSpec {
     public static int getByteArrayLength() {
         return DeviceCodeEnum.getDeviceNumberLength() + DeviceCodeEnum.getDeviceCodeLength();
     }
+
+    @Override
+    public int hashCode() {
+        return toString().hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        DeviceSpec other = (DeviceSpec) obj;
+        return this.deviceCode == other.deviceCode && this.deviceNumber == other.deviceNumber;
+    }
 }

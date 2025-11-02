@@ -1,5 +1,8 @@
 # mc3eprotocol-java
 
+## TODO:
+* モニタ登録を作る
+
 ## はじめに
 
 Java で PLC と MC プロトコルで通信するクライアントプログラムを作りました。  
@@ -55,7 +58,9 @@ public class ClientSample {
             return;
         } 
         
-        // ここに書く
+        // デバイス情報を取得し、コンソール出力する (ビット/ワードデバイス対応)
+        client.printDevice2("SM412");
+        client.printDevice2("D100");
         
         client.disconnect();
     }

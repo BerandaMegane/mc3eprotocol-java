@@ -188,4 +188,17 @@ public class Converter {
         byte[] result1 = Converter.fromIntToByteArray(value, length);
         System.out.println(Arrays.equals(expected1, result1));
     }
+
+    /**
+    * int配列（リトルエンディアン）をbyte配列に変換します。
+    * @param _dwordData int配列
+    * @return 変換されたbyte配列
+    */
+    public static byte[] fromIntArrayToBytes(int[] _dwordData) {
+        ByteBuffer buffer = ByteBuffer.allocate(_dwordData.length * 4).order(ByteOrder.LITTLE_ENDIAN);
+        for (int value : _dwordData) {
+            buffer.putInt(value);
+        }
+        return buffer.array();
+    }
 }

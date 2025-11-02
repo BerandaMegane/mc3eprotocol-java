@@ -48,7 +48,7 @@ public class PlcTypeNameResponse extends AbstractResponse {
      * @return PLC形名のバイト配列
      */
     @Override
-    public byte[] toBytes() {
+    public byte[] toByteArray() {
         return _PlcTypeName.getBytes();
     }
 }

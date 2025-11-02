@@ -145,7 +145,7 @@ class BlockWordReadResponseTest {
         BlockWordReadResponse response = new BlockWordReadResponse(originalData, request);
 
         // Act: バイト配列に変換
-        byte[] resultBytes = response.toBytes();
+        byte[] resultBytes = response.toByteArray();
 
         // Assert: 元のデータと一致することを確認
         assertArrayEquals(originalData, resultBytes, "toBytesメソッドが正しいバイト配列を返しません");
